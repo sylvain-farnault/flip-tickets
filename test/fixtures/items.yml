@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  value: MyString
+  topic: one
+  success: 1
+  errors: 1
+  hide: MyString
+
+two:
+  key: MyString
+  value: MyString
+  topic: two
+  success: 1
+  errors: 1
+  hide: MyString

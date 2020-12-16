@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @topic.name %>
+</p>
+
+<div class="work">
+  <div class="options">
+    <%= link_to "OK :)", item_success_path(@random_item), remote: true, class: "#{}" %>
+    <%= link_to "X :(", item_mistake_path(@random_item), remote: true, class: "#{}" %>
+  </div>
+  <div class="ticket">
+    <div class="box key">
+      <%= @random_item.key %>
+    </div>
+    <div class="box value">
+      <%= @random_item.value %>
+    </div>
+  </div>
+</div>
+
+
+
+
+<p>
+  <strong>Key term:</strong>
+  <%= @topic.key_term %>
+</p>
+
+<p>
+  <strong>Value term:</strong>
+  <%= @topic.value_term %>
+</p>
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

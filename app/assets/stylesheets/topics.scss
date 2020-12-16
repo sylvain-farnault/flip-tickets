@@ -1,0 +1,58 @@
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.work {
+  border: 2px solid purple;
+  display: flex;
+}
+
+.options {
+  border: 2px solid yellow;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  a {
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    width: 100px;
+  }
+
+  .green {
+    background-color: rgba(0, 255, 0, 0.5);
+  }
+
+  .red {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+}
+
+.ticket {
+  border: 2px solid green;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.key {
+  border: 1px solid red;
+}
+
+.value {
+  border: 1px solid blue;
+}
+
+.box {
+  min-width: 350px;
+  max-width: 450px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+
+}
