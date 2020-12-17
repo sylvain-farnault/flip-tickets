@@ -6,12 +6,13 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.where(user: current_user)
   end
 
   # GET /topics/1
   # GET /topics/1.json
   def show
+    redirect_to root_path if @topic.user != current_user
     @random_item = @topic.random_item
   end
 
@@ -28,18 +29,11 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
+    @topic.user = current_user
 
     csv_file = params[:topic][:csv_file].tempfile.to_path.to_s
 
-
     elements = []
-
-    # File.open(Rails.root.join('public', 'uploads', csv_file.original_filename), 'wb') do |file|
-    #   file.write(uploaded_file.read)
-    #   raise
-    # end
-
-
 
     respond_to do |format|
       if @topic.save

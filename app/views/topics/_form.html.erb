@@ -13,19 +13,22 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required:true %>
   </div>
 
   <div class="field">
     <%= form.label :key_term %>
-    <%= form.text_field :key_term %>
+    <%= form.text_field :key_term, required:true %>
   </div>
 
   <div class="field">
     <%= form.label :value_term %>
-    <%= form.text_field :value_term %>
+    <%= form.text_field :value_term, required:true %>
   </div>
-  <%= form.file_field :csv_file %>
+  <div class="field">
+    <%= form.label "CSV File with header: [key,value]" %>
+    <%= form.file_field :csv_file, required:true %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
