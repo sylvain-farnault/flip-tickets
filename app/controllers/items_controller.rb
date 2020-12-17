@@ -12,17 +12,13 @@ class ItemsController < ApplicationController
 
   def add_success
     @item = Item.find(params[:id])
-    @item.success += 1
-    @random_item = @item.topic.random_item
+    # @item.success += 1
     respond_to do |format|
-      # if @item.save
-      #   format.js {render layout: false}
-      #   format.html {render head: 200, content_type: "text/html"}
-      # end
-
-      if @item.save
+      if @item.update(success: @item.success + 1)
+        @random_item = @item.topic.random_item
+        @action = "Add success"
         format.html
-        format.js { render layout: false }
+        format.js { render 'new_item', layout: false }
       else
         format.html
         format.js { render json: @item.errors, status: :unprocessable_entity }
@@ -32,8 +28,18 @@ class ItemsController < ApplicationController
 
   def add_mistake
     @item = Item.find(params[:id])
-    @item.mistakes += 1
-    @item.save
+    # @item.mistakes += 1
+    respond_to do |format|
+      if @item.update(mistakes: @item.mistakes + 1)
+        @random_item = @item.topic.random_item
+        @action = "Add mistake"
+        format.html
+        format.js { render 'new_item', layout: false }
+      else
+        format.html
+        format.js { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 

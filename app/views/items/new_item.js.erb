@@ -1,0 +1,18 @@
+console.log("<%= @action %> => Random item");
+document.querySelector("#key").innerHTML =
+  "<%= @random_item.key %>";
+document.querySelector("#value").innerHTML =
+  "<%= @random_item.value %>";
+
+document.querySelector("#stats > span:first-of-type").innerHTML =
+  "<%= @random_item.success %>";
+document.querySelector("#stats > span:last-of-type").innerHTML =
+  "<%= @random_item.mistakes %>";
+
+
+document.querySelector("#cover").style.opacity = '1';
+document.querySelector("#btn-cover").style.display = "block";
+
+document.querySelector("a.green").href = "<%= item_success_path(@random_item) %>";
+document.querySelector("a.red").href = "<%= item_mistake_path(@random_item) %>";
+

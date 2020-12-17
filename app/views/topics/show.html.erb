@@ -7,15 +7,32 @@
 
 <div class="work">
   <div class="options">
-    <%= link_to "OK :)", item_success_path(@random_item), remote: true, class: "#{}" %>
-    <%= link_to "X :(", item_mistake_path(@random_item), remote: true, class: "#{}" %>
+    <div id="btn-cover"></div>
+    <%= link_to item_success_path(@random_item), remote: true, class: "green" do %>
+      <%= icon("fas", "check-double") %>
+    <% end %>
+    <%= link_to item_mistake_path(@random_item), remote: true, class: "red" do %>
+      <%= icon('far', "times-circle") %>
+    <% end %>
+    <div id="instructions">
+      Reveal: space | I knew: 'v' | I didn't know: 'b'
+    </div>
   </div>
   <div class="ticket">
-    <div class="box key">
+    <div class="box" id="key">
       <%= @random_item.key %>
     </div>
-    <div class="box value">
-      <%= @random_item.value %>
+    <div class="box">
+      <div id="value">
+        <%= @random_item.value %>
+      </div>
+      <div id="cover">
+        <%= icon("fas", "question-circle") %>
+      </div>
+      <div id="stats">
+        <%= icon("fas", "check", class: 'stat-green') %><span><%= @random_item.success %></span>
+        <%= icon("fas", "times", class: 'stat-red') %><span><%= @random_item.mistakes %></span>
+      </div>
     </div>
   </div>
 </div>

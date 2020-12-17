@@ -3,56 +3,147 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .work {
-  border: 2px solid purple;
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+  background-color: rgba(46, 134, 193, 0.5);
   display: flex;
-}
-
-.options {
-  border: 2px solid yellow;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  a {
-    padding: 10px;
-    border: 1px solid lightgrey;
-    border-radius: 10px;
-    width: 100px;
-  }
-
-  .green {
-    background-color: rgba(0, 255, 0, 0.5);
-  }
-
-  .red {
-    background-color: rgba(255, 0, 0, 0.5);
-  }
-}
-
-.ticket {
-  border: 2px solid green;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   margin: auto;
 }
 
-.key {
-  border: 1px solid red;
+.options {
+  border-right: 15px solid lightgrey;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
+
+  a {
+    padding: 10px;
+    // border: 1px solid lightgrey;
+    border-radius: 10px;
+    width: 80%;
+    color: white;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 48px;
+    margin: 10px;
+  }
+
+  a:hover {
+    -webkit-box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+    -moz-box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+    box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+    color: lightgrey;
+  }
+
+  .green {
+    background-color: rgba(19, 141, 117, 0.7);
+  }
+
+  .red {
+    background-color: rgba(203, 67, 53, 0.7);
+  }
 }
 
-.value {
-  border: 1px solid blue;
+.btn-hover {
+  -webkit-box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+  -moz-box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+  box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+
+  i {
+    color: lightgrey;
+  }
+}
+
+#btn-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(214, 137, 16, 0.1);
+}
+
+#instructions {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  font-size: 16px;
+}
+
+.ticket {
+  // border: 2px solid green;
+  width: 70%;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  margin: auto;
+}
+
+#key {
+  // border: 1px solid red;
+}
+
+#value {
+  // border: 1px solid blue;
+  font-size: 60px;
+}
+
+#cover {
+  // border: 1px solid red;
+  border-radius: 10px;
+  z-index: 1000;
+  background-color: rgba(220, 223, 214, 1);
+  font-size: 48px;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // transition: opacity 1s ease-out;
+
 }
 
 .box {
-  min-width: 350px;
-  max-width: 450px;
+  border-radius: 10px;
+  background-color: rgba(255, 250, 249, 1);
+  -webkit-box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+  -moz-box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+  box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.34);
+  width: 80%;
   height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 80px;
+  font-size: 112px;
+  font-weight: bolder;
+  margin: 10px;
+  position: relative;
+}
 
+#stats {
+  position: absolute;
+  font-size: 16px;
+  font-weight: normal;
+  left: 20px;
+  bottom: 20px;
+
+  .stat-green {
+    color: rgba(19, 141, 117, 1);
+  }
+
+  .stat-red {
+    color: rgba(203, 67, 53, 1);
+  }
 }

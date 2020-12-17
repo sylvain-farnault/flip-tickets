@@ -15,3 +15,54 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+const toggleHoverBtn = (color) => {
+  document.querySelector(`a.${color}`).classList.toggle("btn-hover");
+}
+
+
+window.addEventListener("load", event = () => {
+
+  const handleCoverClick = event => {
+    // if (div_cover !== event.target) return;
+    div_cover.style.opacity = '0';
+    document.querySelector("#btn-cover").style.display = "none";
+  }
+
+  const div_cover = document.querySelector("#cover");
+  div_cover.addEventListener("click", handleCoverClick);
+
+  window.addEventListener('keyup', (e) => {
+    const cover_opacity = document.querySelector("#cover").style.opacity
+    console.log(e.key);
+    if (e.key == ' ') {
+      handleCoverClick(e);
+    }
+    if (e.key == 'v') {
+      if (cover_opacity == '' || cover_opacity == '1') {
+        handleCoverClick(e);
+      } else {
+        toggleHoverBtn("green");
+        setTimeout(() => {
+          document.querySelector("a.green").click();
+          toggleHoverBtn("green");
+        }, 300);
+      }
+    }
+    if (e.key == 'b') {
+      if (cover_opacity == '' || cover_opacity == '1') {
+        handleCoverClick(e);
+      } else {
+        toggleHoverBtn("red");
+        setTimeout(() => {
+          document.querySelector("a.red").click();
+          toggleHoverBtn("red");
+        }, 300);
+      }
+    }
+
+  });
+
+
+});
