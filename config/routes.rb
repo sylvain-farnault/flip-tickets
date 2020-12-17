@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'items/create'
+  root to: "pages#home"
+  # get 'items/create'
   resources :topics
   resources :items, only: [:create]
   get 'item_success/:id', to: 'items#add_success', as: 'item_success'

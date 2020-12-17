@@ -18,7 +18,7 @@ require("channels")
 
 
 const toggleHoverBtn = (color) => {
-  document.querySelector(`a.${color}`).classList.toggle("btn-hover");
+  document.querySelector(`a.${color}`)?.classList.toggle("btn-hover");
 }
 
 
@@ -31,10 +31,11 @@ window.addEventListener("load", event = () => {
   }
 
   const div_cover = document.querySelector("#cover");
-  div_cover.addEventListener("click", handleCoverClick);
+  div_cover?.addEventListener("click", handleCoverClick);
 
   window.addEventListener('keyup', (e) => {
-    const cover_opacity = document.querySelector("#cover").style.opacity
+    if (!div_cover) { return ; }
+    const cover_opacity = document.querySelector("#cover")?.style.opacity
     console.log(e.key);
     if (e.key == ' ') {
       handleCoverClick(e);
@@ -45,7 +46,7 @@ window.addEventListener("load", event = () => {
       } else {
         toggleHoverBtn("green");
         setTimeout(() => {
-          document.querySelector("a.green").click();
+          document.querySelector("a.green")?.click();
           toggleHoverBtn("green");
         }, 300);
       }
@@ -56,7 +57,7 @@ window.addEventListener("load", event = () => {
       } else {
         toggleHoverBtn("red");
         setTimeout(() => {
-          document.querySelector("a.red").click();
+          document.querySelector("a.red")?.click();
           toggleHoverBtn("red");
         }, 300);
       }
