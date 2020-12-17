@@ -1,0 +1,31 @@
+<h1><%= @topic.name %></h1>
+<hr>
+<%= link_to "Back", topic_path(@topic)  %>
+<hr>
+<i>** You can hide an item if you already master it!</i>
+<br>
+<table>
+  <tr>
+    <th><%= @topic.key_term.capitalize %></th>
+    <th><%= @topic.value_term.capitalize %></th>
+    <th><%= icon("fas", "check") %></th>
+    <th><%= icon("fas", "times") %></th>
+    <th><%= icon("far", "eye") %>**</th>
+  </tr>
+  <% @topic.items.order("success - mistakes desc").each do |item| %>
+    <tr id=<%= "id" + item.id.to_s %>>
+      <td><%= item.key %></td>
+      <td><%= item.value %></td>
+      <td><%= item.success %></td>
+      <td><%= item.mistakes %></td>
+      <td>
+        <%= link_to item_hide_path(item), remote: true, class: item.hide.to_s do %>
+          <%= icon("far", "eye") %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<hr>
+<%= link_to "Back", topic_path(@topic) %>

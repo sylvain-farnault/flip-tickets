@@ -4,6 +4,6 @@ class Topic < ApplicationRecord
   belongs_to :user
 
   def random_item
-    self.items.sample
+    self.items.where(hide: false).sample
   end
 end

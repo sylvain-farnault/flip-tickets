@@ -42,6 +42,21 @@ class ItemsController < ApplicationController
     end
   end
 
+  def toggle_hide
+    @item = Item.find(params[:id])
+    # @item.mistakes += 1
+    respond_to do |format|
+      if @item.update(hide: !@item.hide)
+        format.html
+        format.js { render 'toggle_hide', layout: false }
+      else
+        format.html
+        format.js { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
 
 
 

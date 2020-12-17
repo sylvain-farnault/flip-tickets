@@ -1,3 +1,17 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+table .true {
+  color: grey;
+}
+
+table .false {
+  color: lightgrey;
+}
+
+table a:hover {
+  text-decoration: none;
+  border: 1px solid orange;
+}
