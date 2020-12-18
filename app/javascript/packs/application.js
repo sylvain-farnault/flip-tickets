@@ -3,6 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+
+
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -16,21 +18,25 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+let div_cover = null;
 
 const toggleHoverBtn = (color) => {
   document.querySelector(`a.${color}`)?.classList.toggle("btn-hover");
 }
 
+const handleCoverClick = event => {
+  // if (div_cover !== event.target) return;
+  div_cover.style.opacity = '0';
+  document.querySelector("#btn-cover").style.display = "none";
+}
 
-window.addEventListener("load", event = () => {
 
-  const handleCoverClick = event => {
-    // if (div_cover !== event.target) return;
-    div_cover.style.opacity = '0';
-    document.querySelector("#btn-cover").style.display = "none";
-  }
 
-  const div_cover = document.querySelector("#cover");
+const eventHandler = () => {
+  console.log("event handler");
+
+
+  console.log(div_cover);
   div_cover?.addEventListener("click", handleCoverClick);
 
   window.addEventListener('keyup', (e) => {
@@ -64,6 +70,26 @@ window.addEventListener("load", event = () => {
     }
 
   });
+}
 
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
+var observer = new MutationObserver(function(mutations, observer) {
+    // fired when a mutation occurs
+
+    setTimeout(() => {
+      // console.log(mutations, observer);
+      div_cover = document.querySelector("#cover");
+      console.log("mutation");
+      eventHandler();
+    },400)
+    // ...
+});
+
+// define what element should be observed by the observer
+// and what types of mutations trigger the callback
+observer.observe(document, {
+  subtree: true,
+  attributes: true
+  //...
 });

@@ -3,15 +3,30 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-table .true {
-  color: grey;
-}
-
-table .false {
+#stats-table .true {
   color: lightgrey;
 }
 
-table a:hover {
+#stats-table .false {
+  color: grey;
+}
+
+#stats-table .false:hover {
+  color: grey;
+}
+
+#stats-table .true:hover {
+  color: lightgrey;
+}
+
+
+
+#stats-table a:hover {
   text-decoration: none;
-  border: 1px solid orange;
+  // border: 1px solid lightgrey;
+  // border-radius: 50%;
+  -webkit-box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.66);
+-moz-box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.66);
+box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.66);
+  background-color: transparent;
 }

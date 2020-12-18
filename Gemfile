@@ -58,3 +58,4 @@ gem 'activerecord-import'
 gem 'font-awesome-sass', '~> 5.15.1'
 
 gem 'devise'
+gem 'jquery-rails'
